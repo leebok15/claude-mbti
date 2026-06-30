@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "category": "EI",
+    "text": "주말에 에너지를 충전하는 나만의 방법은?",
+    "optionA": { "text": "친구들과 만나 신나게 시간을 보낸다", "value": "E" },
+    "optionB": { "text": "혼자서 조용히 쉬며 재충전한다", "value": "I" }
+  },
+  {
+    "id": 2,
+    "category": "SN",
+    "text": "새로운 것을 배울 때 나는?",
+    "optionA": { "text": "구체적인 사례와 실습으로 직접 익힌다", "value": "S" },
+    "optionB": { "text": "전체 개념과 원리를 먼저 파악한다", "value": "N" }
+  },
+  {
+    "id": 3,
+    "category": "TF",
+    "text": "친구가 고민을 털어놓을 때 나는?",
+    "optionA": { "text": "문제의 원인을 찾고 해결책을 제시한다", "value": "T" },
+    "optionB": { "text": "공감하며 감정을 함께 나눈다", "value": "F" }
+  },
+  {
+    "id": 4,
+    "category": "JP",
+    "text": "여행을 계획할 때 나는?",
+    "optionA": { "text": "세부 일정을 꼼꼼히 짜고 따른다", "value": "J" },
+    "optionB": { "text": "큰 틀만 잡고 즉흥적으로 즐긴다", "value": "P" }
+  },
+  {
+    "id": 5,
+    "category": "EI",
+    "text": "처음 만나는 자리에서 나는?",
+    "optionA": { "text": "먼저 말을 걸고 대화를 이끈다", "value": "E" },
+    "optionB": { "text": "상대방이 먼저 다가오기를 기다린다", "value": "I" }
+  },
+  {
+    "id": 6,
+    "category": "SN",
+    "text": "미래에 대해 이야기할 때 나는?",
+    "optionA": { "text": "현실적이고 실현 가능한 계획을 세운다", "value": "S" },
+    "optionB": { "text": "다양한 가능성과 상상을 즐긴다", "value": "N" }
+  },
+  {
+    "id": 7,
+    "category": "TF",
+    "text": "중요한 결정을 내릴 때 나는?",
+    "optionA": { "text": "논리와 사실을 기반으로 판단한다", "value": "T" },
+    "optionB": { "text": "관계와 감정을 먼저 고려한다", "value": "F" }
+  },
+  {
+    "id": 8,
+    "category": "JP",
+    "text": "과제나 업무를 처리할 때 나는?",
+    "optionA": { "text": "마감 전에 미리 완료해두는 편이다", "value": "J" },
+    "optionB": { "text": "마감 직전 집중해서 끝내는 편이다", "value": "P" }
+  },
+  {
+    "id": 9,
+    "category": "EI",
+    "text": "모임에서 나는?",
+    "optionA": { "text": "여러 사람과 두루두루 어울린다", "value": "E" },
+    "optionB": { "text": "친한 몇 명과 깊은 대화를 나눈다", "value": "I" }
+  },
+  {
+    "id": 10,
+    "category": "SN",
+    "text": "어떤 사람에 가깝다고 생각하나요?",
+    "optionA": { "text": "경험을 중시하고 현실에 집중하는 사람", "value": "S" },
+    "optionB": { "text": "영감을 중시하고 미래를 꿈꾸는 사람", "value": "N" }
+  },
+  {
+    "id": 11,
+    "category": "TF",
+    "text": "옳지 않다고 생각되는 상황에서 나는?",
+    "optionA": { "text": "솔직하게 의견을 말하고 바로잡으려 한다", "value": "T" },
+    "optionB": { "text": "분위기를 살피며 조심스럽게 표현한다", "value": "F" }
+  },
+  {
+    "id": 12,
+    "category": "JP",
+    "text": "일상에서 나는?",
+    "optionA": { "text": "정해진 루틴을 따르는 게 마음이 편하다", "value": "J" },
+    "optionB": { "text": "그날그날 상황에 따라 유연하게 움직인다", "value": "P" }
+  }
+]
