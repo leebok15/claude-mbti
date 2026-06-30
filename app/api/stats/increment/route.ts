@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server'
 import { statsStore, VALID_CODES } from '@/lib/statsStore'
 
+export const dynamic = 'force-static'
+
 export function POST(req: Request) {
   const { searchParams } = new URL(req.url)
   const type = searchParams.get('type')?.toUpperCase()

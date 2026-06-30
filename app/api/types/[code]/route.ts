@@ -3,6 +3,12 @@ import types from '@/data/mbti-types.json'
 
 const VALID_CODES = types.map((t) => t.code)
 
+export const dynamic = 'force-static'
+
+export function generateStaticParams() {
+  return VALID_CODES.map((code) => ({ code }))
+}
+
 export async function GET(_req: Request, { params }: { params: Promise<{ code: string }> }) {
   const { code: rawCode } = await params
   const code = rawCode.toUpperCase()
