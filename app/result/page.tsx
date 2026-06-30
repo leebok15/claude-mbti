@@ -1,37 +1,31 @@
-import { redirect } from 'next/navigation'
+'use client'
+
+import { useSearchParams, useRouter } from 'next/navigation'
+import { Suspense } from 'react'
 import Link from 'next/link'
-import type { MBTIType, MBTICode } from '@/types'
+import type { MBTIType } from '@/types'
 import typesData from '@/data/mbti-types.json'
 import DimensionBar from '@/components/DimensionBar'
 import ResultClient from './ResultClient'
 
 const VALID_CODES = typesData.map((t) => t.code)
 
-interface Props {
-  searchParams: Promise<{
-    type?: string
-    ei?: string
-    sn?: string
-    tf?: string
-    jp?: string
-  }>
-}
+function ResultContent() {
+  const searchParams = useSearchParams()
+  const router = useRouter()
 
-export async function generateStaticParams() {
-  return VALID_CODES.map((code) => ({ type: code }))
-}
-
-export default async function ResultPage({ searchParams }: Props) {
-  const params = await searchParams
-  const code = params.type?.toUpperCase()
-  if (!code || !VALID_CODES.includes(code)) redirect('/')
+  const code = searchParams.get('type')?.toUpperCase()
+  if (!code || !VALID_CODES.includes(code)) {
+    if (typeof window !== 'undefined') router.replace('/')
+    return null
+  }
 
   const type = typesData.find((t) => t.code === code) as MBTIType
 
-  const ei = parseInt(params.ei ?? '-1')
-  const sn = parseInt(params.sn ?? '-1')
-  const tf = parseInt(params.tf ?? '-1')
-  const jp = parseInt(params.jp ?? '-1')
+  const ei = parseInt(searchParams.get('ei') ?? '-1')
+  const sn = parseInt(searchParams.get('sn') ?? '-1')
+  const tf = parseInt(searchParams.get('tf') ?? '-1')
+  const jp = parseInt(searchParams.get('jp') ?? '-1')
   const hasScores = [ei, sn, tf, jp].every((v) => v >= 0 && v <= 3)
 
   const eiPct = hasScores ? Math.round((ei / 3) * 100) : 50
@@ -92,5 +86,13 @@ export default async function ResultPage({ searchParams }: Props) {
         </div>
       </div>
     </main>
+  )
+}
+
+export default function ResultPage() {
+  return (
+    <Suspense>
+      <ResultContent />
+    </Suspense>
   )
 }
