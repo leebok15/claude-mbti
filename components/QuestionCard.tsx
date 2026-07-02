@@ -10,11 +10,11 @@ interface Props {
 export default function QuestionCard({ question, selected, onSelect }: Props) {
   return (
     <div className="animate-slide-in">
-      <p className="text-xl font-semibold text-gray-800 leading-relaxed mb-8 text-center px-2">
+      <p className="text-2xl font-bold text-black leading-snug mb-10 tracking-tight">
         {question.text}
       </p>
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-3">
         {(['A', 'B'] as const).map((key) => {
           const option = key === 'A' ? question.optionA : question.optionB
           const isSelected = selected === key
@@ -24,26 +24,27 @@ export default function QuestionCard({ question, selected, onSelect }: Props) {
               key={key}
               onClick={() => onSelect(key)}
               className={cn(
-                'w-full p-5 rounded-2xl border-2 text-left transition-all duration-200 group',
+                'w-full p-5 border text-left transition-all duration-200 group',
                 isSelected
-                  ? 'border-purple-500 bg-purple-50 shadow-md'
-                  : 'border-gray-200 bg-white hover:border-purple-300 hover:bg-purple-50/50 hover:shadow-sm'
+                  ? 'border-black bg-black'
+                  : 'border-black/15 bg-white hover:border-black/50'
               )}
             >
-              <div className="flex items-center gap-4">
+              <div className="flex items-start gap-4">
                 <span
                   className={cn(
-                    'flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold transition-colors',
+                    'flex-shrink-0 w-7 h-7 flex items-center justify-center text-xs font-black border transition-colors',
                     isSelected
-                      ? 'bg-purple-500 text-white'
-                      : 'bg-gray-100 text-gray-500 group-hover:bg-purple-100 group-hover:text-purple-600'
+                      ? 'border-transparent text-black'
+                      : 'border-black/20 text-black/40 group-hover:border-black/50 group-hover:text-black'
                   )}
+                  style={isSelected ? { backgroundColor: '#F5E642' } : {}}
                 >
                   {key}
                 </span>
                 <span className={cn(
-                  'text-base font-medium leading-snug transition-colors',
-                  isSelected ? 'text-purple-800' : 'text-gray-700'
+                  'text-base font-medium leading-snug pt-0.5 transition-colors',
+                  isSelected ? 'text-white' : 'text-black/70 group-hover:text-black'
                 )}>
                   {option.text}
                 </span>

@@ -1,33 +1,32 @@
 interface Props {
   leftLabel: string
   rightLabel: string
-  leftPct: number  // 0-100 (left side percentage)
+  leftPct: number
   color: string
 }
 
-export default function DimensionBar({ leftLabel, rightLabel, leftPct, color }: Props) {
+export default function DimensionBar({ leftLabel, rightLabel, leftPct }: Props) {
   const rightPct = 100 - leftPct
   const dominantSide = leftPct >= 50 ? 'left' : 'right'
   const dominantPct = dominantSide === 'left' ? leftPct : rightPct
 
   return (
-    <div className="mb-4">
-      <div className="flex justify-between items-center mb-1.5">
-        <span className={`text-sm font-semibold ${leftPct >= 50 ? 'text-gray-900' : 'text-gray-400'}`}>
+    <div className="mb-5">
+      <div className="flex justify-between items-baseline mb-2">
+        <span className={`text-sm font-black tracking-widest ${leftPct >= 50 ? 'text-black' : 'text-black/25'}`}>
           {leftLabel}
         </span>
-        <span className={`text-xs font-bold px-2 py-0.5 rounded-full`}
-          style={{ backgroundColor: `${color}20`, color }}>
+        <span className="text-xs font-bold text-black/40 tabular-nums">
           {dominantSide === 'left' ? leftLabel : rightLabel} {dominantPct}%
         </span>
-        <span className={`text-sm font-semibold ${rightPct > 50 ? 'text-gray-900' : 'text-gray-400'}`}>
+        <span className={`text-sm font-black tracking-widest ${rightPct > 50 ? 'text-black' : 'text-black/25'}`}>
           {rightLabel}
         </span>
       </div>
-      <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
+      <div className="h-px bg-black/10 w-full overflow-hidden">
         <div
-          className="h-full rounded-full transition-all duration-700 ease-out"
-          style={{ width: `${leftPct}%`, backgroundColor: color }}
+          className="h-full transition-all duration-700 ease-out"
+          style={{ width: `${leftPct}%`, backgroundColor: '#F5E642' }}
         />
       </div>
     </div>

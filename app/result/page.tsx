@@ -34,54 +34,72 @@ function ResultContent() {
   const jpPct = hasScores ? Math.round((jp / 3) * 100) : 50
 
   return (
-    <main className="min-h-screen bg-gray-50 pb-12">
+    <main className="min-h-screen pb-16" style={{ backgroundColor: '#F7F5F0' }}>
+      {/* Nav */}
+      <nav className="flex items-center justify-between px-8 py-6 border-b border-black/8">
+        <span className="text-xs font-bold tracking-[0.2em] uppercase text-black/30">MyMBTI</span>
+        <Link
+          href="/"
+          className="text-xs font-semibold tracking-widest uppercase text-black/30 hover:text-black transition-colors duration-200"
+        >
+          ← 홈
+        </Link>
+      </nav>
+
       {/* Hero */}
-      <div
-        className="w-full pt-12 pb-10 px-4 text-white text-center"
-        style={{ background: `linear-gradient(135deg, ${type.color}ee, ${type.color}99)` }}
-      >
-        <p className="text-sm font-semibold opacity-80 mb-2 uppercase tracking-widest">
-          당신의 유형은
+      <div className="px-8 py-14 border-b border-black/8 animate-fade-in">
+        <p className="text-xs font-bold tracking-[0.25em] uppercase text-black/30 mb-6">
+          Your Type
         </p>
-        <h1 className="text-7xl font-black mb-3 tracking-wide">{type.code}</h1>
-        <p className="text-2xl font-bold mb-1">{type.nickname}</p>
-        <p className="text-base opacity-80">{type.tagline}</p>
+        <div className="flex items-end gap-6 mb-5">
+          <h1
+            className="text-[clamp(5rem,20vw,9rem)] font-black leading-none tracking-tight"
+            style={{ color: type.color }}
+          >
+            {type.code}
+          </h1>
+          <div className="pb-3">
+            <p className="text-xl font-black text-black leading-tight">{type.nickname}</p>
+            <p className="text-sm text-black/40 mt-1">{type.tagline}</p>
+          </div>
+        </div>
       </div>
 
-      <div className="max-w-lg mx-auto px-4">
+      <div className="max-w-lg mx-auto px-8">
         {/* Dimension Bars */}
-        <div className="bg-white rounded-3xl shadow-sm p-6 mt-6 mb-4">
-          <h2 className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-5">
+        <div className="py-10 border-b border-black/8">
+          <p className="text-xs font-bold tracking-[0.25em] uppercase text-black/30 mb-7">
             성격 척도
-          </h2>
+          </p>
           <DimensionBar leftLabel="E" rightLabel="I" leftPct={eiPct} color={type.color} />
           <DimensionBar leftLabel="S" rightLabel="N" leftPct={snPct} color={type.color} />
           <DimensionBar leftLabel="T" rightLabel="F" leftPct={tfPct} color={type.color} />
           <DimensionBar leftLabel="J" rightLabel="P" leftPct={jpPct} color={type.color} />
           {!hasScores && (
-            <p className="text-xs text-gray-400 text-center mt-3">
+            <p className="text-xs text-black/30 mt-4">
               * 테스트를 완료하면 정확한 수치를 확인할 수 있어요
             </p>
           )}
         </div>
 
-        {/* Tabs (client component) */}
-        <ResultClient type={type} />
+        {/* Detail tabs */}
+        <div className="py-8">
+          <ResultClient type={type} />
+        </div>
 
         {/* Actions */}
-        <div className="mt-6 flex flex-col gap-3">
+        <div className="flex flex-col gap-3 pt-2">
           <Link
             href="/test"
-            className="block w-full py-3.5 text-center rounded-2xl border-2 font-semibold transition-all hover:shadow-sm"
-            style={{ borderColor: type.color, color: type.color }}
+            className="block w-full py-4 text-center border border-black/15 text-sm font-bold tracking-widest uppercase hover:border-black/50 transition-colors duration-200"
           >
             다시 테스트하기
           </Link>
           <Link
             href="/stats"
-            className="block w-full py-3.5 text-center rounded-2xl bg-gray-100 font-semibold text-gray-600 hover:bg-gray-200 transition-all"
+            className="block w-full py-4 text-center text-sm font-bold tracking-widest uppercase text-black/30 hover:text-black transition-colors duration-200"
           >
-            전체 유형 통계 보기
+            전체 유형 통계 →
           </Link>
         </div>
       </div>

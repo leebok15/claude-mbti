@@ -8,16 +8,18 @@ export default function ProgressBar({ current, total }: Props) {
 
   return (
     <div className="w-full">
-      <div className="flex justify-between items-center mb-2">
-        <span className="text-sm font-medium text-purple-700">진행 중</span>
-        <span className="text-sm font-semibold text-gray-600">
-          {current} <span className="text-gray-400 font-normal">/ {total}</span>
+      <div className="flex justify-between items-center mb-3">
+        <span className="text-xs font-bold tracking-[0.2em] uppercase text-black/40">
+          Question
+        </span>
+        <span className="text-xs font-bold text-black/40 tabular-nums">
+          {current} <span className="text-black/20">/ {total}</span>
         </span>
       </div>
-      <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+      <div className="h-px bg-black/10 w-full overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r from-purple-500 to-violet-500 rounded-full transition-all duration-500 ease-out"
-          style={{ width: `${pct}%` }}
+          className="h-full transition-all duration-500 ease-out"
+          style={{ width: `${pct}%`, backgroundColor: '#F5E642' }}
         />
       </div>
     </div>
